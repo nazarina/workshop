@@ -3,17 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Воркшоп с Натали: Создание ботов</title>
+    <title>Воркшоп с Натали: создание ботов</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <!-- Подключаем пару Montserrat и Playfair Display -->
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
     <style>
         :root {
             --soft-pink: #fff0f3;
             --soft-purple: #f3f0ff;
-            --accent-color: #008080; /* Морская волна */
-            --deep-accent: #800000; /* Бордовый */
+            --accent-color: #008080;
+            --deep-accent: #800000;
             --text-main: #4a4a4a;
             --white: #ffffff;
             --button-grad: linear-gradient(to top, #800000 0%, #d63031 100%);
@@ -33,7 +32,6 @@
             background-color: var(--soft-pink);
             color: var(--text-main);
             font-size: var(--base-font-size);
-            font-weight: 400; 
             line-height: 1.7;
             overflow-x: hidden;
         }
@@ -51,7 +49,6 @@
             padding: 40px 0;
         }
 
-        /* Главный баннер (Hero Section) */
         .hero-banner {
             background: var(--white);
             padding: 120px 0 80px;
@@ -78,10 +75,7 @@
             opacity: 0.6;
         }
 
-        .hero-content {
-            position: relative;
-            z-index: 1;
-        }
+        .hero-content { position: relative; z-index: 1; }
 
         .hero-banner h1 {
             font-size: 3.5rem;
@@ -93,8 +87,6 @@
             font-size: 1.5rem;
             max-width: 800px;
             margin: 0 auto;
-            color: var(--text-main);
-            font-weight: 400;
             font-style: italic;
         }
 
@@ -127,6 +119,12 @@
             background: var(--soft-purple);
         }
 
+        .photo-side img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
         .intro-name {
             font-family: 'Playfair Display', serif;
             font-size: 1.8rem;
@@ -153,16 +151,13 @@
             gap: 20px;
         }
 
-        .thesis-icon {
-            font-size: 1.8rem;
-        }
+        .thesis-icon { font-size: 1.8rem; }
 
         .thesis-content strong {
             color: var(--deep-accent);
             font-size: 1.2rem;
             display: block;
             margin-bottom: 5px;
-            font-weight: 600;
         }
         
         .section-title {
@@ -199,7 +194,6 @@
             padding: 45px;
             border-radius: var(--border-radius);
             box-shadow: var(--shadow);
-            border: 2px solid transparent;
             transition: all 0.3s ease;
             display: flex;
             flex-direction: column;
@@ -209,13 +203,13 @@
         .task-card:hover {
             border-color: var(--accent-color);
             transform: translateY(-5px);
+            box-shadow: 0 20px 45px rgba(0, 128, 128, 0.15);
         }
 
         .task-card h3 {
             color: var(--accent-color);
             margin-bottom: 20px;
             font-size: 1.8rem;
-            font-weight: 700;
         }
 
         .btn {
@@ -225,18 +219,14 @@
             color: white;
             text-decoration: none;
             border-radius: 18px;
-            font-family: 'Montserrat', sans-serif;
             font-weight: 600;
             text-align: center;
             margin-top: 25px;
             transition: all 0.3s;
             box-shadow: 0 8px 25px rgba(128, 0, 0, 0.25);
-            letter-spacing: 1px;
         }
 
-        .btn:hover {
-            filter: brightness(1.1);
-        }
+        .btn:hover { filter: brightness(1.1); }
 
         .bonus-banner {
             background: #fff9db;
@@ -253,12 +243,6 @@
             0% { transform: scale(1); }
             50% { transform: scale(1.02); }
             100% { transform: scale(1); }
-        }
-
-        .bonus-banner h3 {
-            color: #d35400;
-            font-size: 2.4rem;
-            margin-bottom: 15px;
         }
 
         .instruction-step {
@@ -278,22 +262,16 @@
             align-items: center;
             justify-content: center;
             border-radius: 18px;
-            font-weight: 600;
             margin-bottom: 30px;
             font-size: 1.5rem;
-            font-family: 'Montserrat', sans-serif;
         }
 
-        .step-theses {
-            list-style: none;
-            margin: 25px 0;
-        }
+        .step-theses { list-style: none; margin: 25px 0; }
 
         .step-theses li {
             position: relative;
             padding-left: 35px;
             margin-bottom: 15px;
-            font-weight: 400;
             color: #444;
         }
 
@@ -310,7 +288,6 @@
             padding: 20px 40px;
             border: 4px dashed var(--accent-color);
             border-radius: 20px;
-            font-family: 'Montserrat', sans-serif;
             font-weight: 600;
             color: var(--accent-color);
             display: inline-block;
@@ -319,19 +296,31 @@
             letter-spacing: 3px;
         }
 
+        /* Улучшенные стили для скриншотов */
         .screenshot-placeholder {
             width: 100%;
-            background: #f1f2f6;
+            background: #f8f9fa;
             border-radius: 25px;
             margin-top: 40px;
             display: flex;
+            flex-direction: column;
             align-items: center;
             justify-content: center;
-            color: #a4b0be;
+            gap: 30px;
+            padding: 30px;
             border: 2px solid #dfe4ea;
-            box-shadow: 0 25px 60px rgba(0,0,0,0.12);
-            min-height: 350px;
-            font-style: italic;
+            box-shadow: inset 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .screenshot-placeholder img {
+            max-width: 100%;
+            max-height: 600px;
+            height: auto;
+            width: auto;
+            object-fit: contain;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+            border: 1px solid rgba(0,0,0,0.05);
         }
 
         footer {
@@ -342,10 +331,6 @@
             border-top-left-radius: 80px;
             border-top-right-radius: 80px;
             color: white;
-        }
-
-        footer p {
-            font-family: 'Playfair Display', serif;
         }
 
         .social-links {
@@ -359,7 +344,6 @@
             color: white; 
             text-decoration: none; 
             font-weight: 600;
-            font-size: 1.2rem;
             border-bottom: 2px solid rgba(255,255,255,0.3);
             padding-bottom: 5px;
             transition: 0.3s;
@@ -368,7 +352,6 @@
         @media (max-width: 992px) {
             .hero-layout { grid-template-columns: 1fr; text-align: center; }
             .photo-side { max-width: 450px; margin: 0 auto; }
-            .thesis-item { text-align: left; }
             .hero-banner h1 { font-size: 2.8rem; }
         }
 
@@ -376,13 +359,11 @@
             .tasks-grid { grid-template-columns: 1fr; }
             .instruction-step { padding: 35px; }
             .section-title { font-size: 2.2rem; }
-            .hero-banner { padding: 80px 0 60px; }
         }
     </style>
 </head>
 <body>
 
-    <!-- Главный баннер -->
     <div class="hero-banner">
         <div class="container hero-content">
             <h1>Как учителю создать свою цифровую визитку в Telegram</h1>
@@ -391,16 +372,15 @@
     </div>
 
     <div class="container">
-        <!-- Секция об авторе -->
         <header>
             <div class="container">
                 <div class="hero-layout">
                     <div class="photo-side">
-                        <span style="font-weight: 600; color: var(--accent-color);">Фото Натали</span>
+                        <img src="https://via.placeholder.com/400x400" alt="Натали">
                     </div>
                     <div class="thesis-side">
                         <span class="intro-name">Меня зовут Натали</span>
-                        <h3 style="margin-bottom: 20px; font-size: 1.5rem; color: var(--deep-accent);">Мои умения и опыт:</h3>
+                        <h3 style="margin-bottom: 20px; font-size: 1.5rem;">Мои умения и опыт:</h3>
                         <div class="thesis-list">
                             <div class="thesis-item">
                                 <span class="thesis-icon">👶</span>
@@ -413,14 +393,14 @@
                                 <span class="thesis-icon">🚀</span>
                                 <div class="thesis-content">
                                     <strong>Web и AI для подростков</strong>
-                                    Веду курсы по созданию сайтов и нейросетям для нового поколения.
+                                    Курсы по созданию сайтов и нейросетям.
                                 </div>
                             </div>
                             <div class="thesis-item">
                                 <span class="thesis-icon">⚙️</span>
                                 <div class="thesis-content">
                                     <strong>Технический специалист</strong>
-                                    Настройка обучающих платформ, сайтов и сложных чат-ботов для онлайн-школ.
+                                    Настройка платформ и сложных чат-ботов.
                                 </div>
                             </div>
                         </div>
@@ -429,146 +409,140 @@
             </div>
         </header>
 
-        <!-- Новая секция про преимущества -->
         <div class="advantages-section">
-            <h2 style="margin-bottom: 40px; text-align: center;">Зачем современному учителю нужен такой бот?</h2>
+            <h2 style="margin-bottom: 40px; text-align: center;">Зачем учителю нужен такой бот?</h2>
             <div class="advantage-card">
                 <h3>✨ Технологичный имидж</h3>
-                <p>Бот показывает, что ты современный эксперт, который владеет инструментами будущего. Родители доверяют тем, кто идет в ногу со временем.</p>
+                <p>Бот показывает, что ты современный эксперт. Родители доверяют тем, кто идет в ногу со временем.</p>
             </div>
             <div class="advantage-card">
                 <h3>⚡️ Скорость ответа 24/7</h3>
-                <p>Пока коллеги вручную отвечают на одни и те же вопросы о цене и расписании, твой бот выдает информацию мгновенно. Ты экономишь свое время и время родителя.</p>
+                <p>Пока коллеги вручную отвечают на одни и те же вопросы, твой бот выдает информацию мгновенно.</p>
             </div>
             <div class="advantage-card">
                 <h3>🌿 Заботливый сервис для родителей</h3>
-                <p>Бот позволяет родителям оперативно получить ответ на вопрос. Все материалы, ссылка на оплату уроков и инструкции собраны в одном месте.</p>
+                <p>Бот позволяет родителям оперативно получить ответ. Все материалы и инструкции собраны в одном месте.</p>
             </div>
         </div>
 
         <h2 class="section-title">Задачи на сегодня</h2>
         <div class="tasks-grid">
             <div class="task-card">
-                <h3>1. Создать бота</h3>
-                <p>Получим официальный токен и создадим аккаунт вашего будущего помощника в Telegram.</p>
+                <div>
+                    <h3>1. Создать бота</h3>
+                    <p>Получим официальный токен и создадим аккаунт вашего будущего помощника в Telegram.</p>
+                </div>
                 <a href="https://t.me/BotFather" target="_blank" class="btn">Зайти в BotFather</a>
             </div>
             <div class="task-card">
-                <h3>2. Создать логику</h3>
-                <p>Настроим блоки ответов и переходы в Salebot, чтобы бот начал общение.</p>
+                <div>
+                    <h3>2. Создать логику</h3>
+                    <p>Настроим блоки ответов и переходы в Salebot, чтобы бот начал общение.</p>
+                </div>
                 <a href="https://salebot.pro/l/87288" target="_blank" class="btn">Открыть Salebot</a>
             </div>
         </div>
 
         <div class="bonus-banner">
             <h3>🎁 ЗАБЕРИ СВОЙ БОНУС!</h3>
-            <div class="bonus-text">
-                <p><strong>Эта подробная инструкция останется у тебя навсегда.</strong></p>
-                <p style="margin-top: 15px;">Но это не всё! Напиши мне в личку, и я пришлю тебе <strong> гайд</strong> по оформлению интерактивных постов с кнопками для Telegram-каналов!</p>
-            </div>
+            <p>Напиши мне в личку, и я пришлю тебе <strong>гайд</strong> по оформлению интерактивных постов!</p>
         </div>
 
-        <h2 id="base" class="section-title">Инструкция по созданию бота</h2>
+        <h2 class="section-title">Инструкция по созданию бота</h2>
 
-        <!-- Step 1 -->
         <div class="instruction-step">
             <div class="step-num">1</div>
             <h3>Регистрируем бота в Botfather</h3>
             <ul class="step-theses">
                 <li>Открой @BotFather в Telegram и нажми Start.</li>
-                <li>Введи команду /newbot для создания нового бота.</li>
-                <li>Придумай имя (например: Мой Помощник).</li>
-                <li>Придумай username, который кончается на _bot.</li>
-                <li>Скопируй длинный код (API Token) — он нам нужен.</li>
+                <li>Введи команду /newbot.</li>
+                <li>Скопируй API Token — он нам пригодится.</li>
             </ul>
-            <div class="screenshot-placeholder"><img src="https://github.com/nazarina/workshop/blob/main/%D0%A1%D0%BD%D0%B8%D0%BC%D0%BE%D0%BA%20%D1%8D%D0%BA%D1%80%D0%B0%D0%BD%D0%B0%202026-03-21%20083449-Picsart-AiImageEnhancer%20(1).png?raw=true"></div>
+            <div class="screenshot-placeholder">
+                <img src="https://github.com/nazarina/workshop/blob/main/%D0%A1%D0%BD%D0%B8%D0%BC%D0%BE%D0%BA%20%D1%8D%D0%BA%D1%80%D0%B0%D0%BD%D0%B0%202026-03-21%20083449-Picsart-AiImageEnhancer%20(1).png?raw=true" alt="Шаг 1">
+            </div>
         </div>
 
-        <!-- Step 2 -->
         <div class="instruction-step">
             <div class="step-num">2</div>
             <h3>Создаем проект в Salebot</h3>
             <ul class="step-theses">
                 <li>Зайди на платформу и создай новый проект.</li>
-                <li>Обязательно примени мой промокод при регистрации. Он даст 10 дней бесплатного использования полного функционала платформы.</li>
+                <li>Примени промокод для 10 дней бесплатного доступа.</li>
             </ul>
             <center><div class="promo-code">NAZARINA</div></center>
-            <div class="screenshot-placeholder"><img src=""https://github.com/nazarina/workshop/blob/main/Salebot-%D0%BA%D0%BE%D0%BD%D1%81%D1%82%D1%80%D1%83%D0%BA%D1%82%D0%BE%D1%80-%D1%87%D0%B0%D1%82-%D0%B1%D0%BE%D1%82%D0%BE%D0%B2-MAX-Telegram-%D0%92%D0%BA%D0%BE%D0%BD%D1%82%D0%B0%D0%BA%D1%82%D0%B5-%D0%90%D0%B2%D0%B8%D1%82%D0%BE-Instagram-Whatsapp-03-21-2026_08_49_AM-Picsart-AiImageEnhancer.png?raw=true></div>
+            <div class="screenshot-placeholder">
+                <img src="https://github.com/nazarina/workshop/blob/main/Salebot-%D0%BA%D0%BE%D0%BD%D1%81%D1%82%D1%80%D1%83%D0%BA%D1%82%D0%BE%D1%80-%D1%87%D0%B0%D1%82-%D0%B1%D0%BE%D1%82%D0%BE%D0%B2-MAX-Telegram-%D0%92%D0%BA%D0%BE%D0%BD%D1%82%D0%B0%D0%BA%D1%82%D0%B5-%D0%90%D0%B2%D0%B8%D1%82%D0%BE-Instagram-Whatsapp-03-21-2026_08_49_AM-Picsart-AiImageEnhancer.png?raw=true" alt="Шаг 2">
+            </div>
         </div>
 
-        <!-- Step 3 -->
         <div class="instruction-step">
             <div class="step-num">3</div>
             <h3>Первое сообщение бота</h3>
             <ul class="step-theses">
-                <li>Перейди во вкладку «Конструктор воронок».</li>
-                <li>Создай первый блок с типом «Стартовое условие».</li>
-                <li>Напиши приветствие, которое увидит твой клиент.</li>
+                <li>В «Конструкторе воронок» создай блок «Стартовое условие».</li>
+                <li>Напиши приветствие для твоих клиентов.</li>
             </ul>
-            <div class="screenshot-placeholder"><img src="https://github.com/nazarina/workshop/blob/main/%D0%92%D0%B8%D0%B7%D0%B8%D1%82%D0%BA%D0%B0-%D0%9A%D0%BE%D0%BD%D1%81%D1%82%D1%80%D1%83%D0%BA%D1%82%D0%BE%D1%80-03-21-2026_08_52_AM-Picsart-AiImageEnhancer.png?raw=true">
-            <img src="https://github.com/nazarina/workshop/blob/main/%D0%92%D0%B8%D0%B7%D0%B8%D1%82%D0%BA%D0%B0-%D0%9A%D0%BE%D0%BD%D1%81%D1%82%D1%80%D1%83%D0%BA%D1%82%D0%BE%D1%80-03-21-2026_08_54_AM-Picsart-AiImageEnhancer.png?raw=true">
+            <div class="screenshot-placeholder">
+                <img src="https://github.com/nazarina/workshop/blob/main/%D0%92%D0%B8%D0%B7%D0%B8%D1%82%D0%BA%D0%B0-%D0%9A%D0%BE%D0%BD%D1%81%D1%82%D1%80%D1%83%D0%BA%D1%82%D0%BE%D1%80-03-21-2026_08_52_AM-Picsart-AiImageEnhancer.png?raw=true" alt="Конструктор 1">
+                <img src="https://github.com/nazarina/workshop/blob/main/%D0%92%D0%B8%D0%B7%D0%B8%D1%82%D0%BA%D0%B0-%D0%9A%D0%BE%D0%BD%D1%81%D1%82%D1%80%D1%83%D0%BA%D1%82%D0%BE%D1%80-03-21-2026_08_54_AM-Picsart-AiImageEnhancer.png?raw=true" alt="Конструктор 2">
             </div>
         </div>
 
-        <!-- Step 4 -->
         <div class="instruction-step">
             <div class="step-num">4</div>
             <h3>Связываем бот с воронкой</h3>
             <ul class="step-theses">
-                <li>Зайди в раздел «Каналы» и выбери «Telegram».</li>
-                <li>Вставь скопированный токен из первого шага.</li>
-                <li>Нажми «Запустить» и проверь бота в Telegram.</li>
+                <li>В разделе «Каналы» выбери Telegram.</li>
+                <li>Вставь токен и нажми «Запустить».</li>
             </ul>
-            <div class="screenshot-placeholder"><img src="https://github.com/nazarina/workshop/blob/main/%D0%92%D0%B8%D0%B7%D0%B8%D1%82%D0%BA%D0%B0-%D0%9A%D0%B0%D0%BD%D0%B0%D0%BB%D1%8B-03-21-2026_09_01_AM-Picsart-AiImageEnhancer.png?raw=true">
-            <img src="https://github.com/nazarina/workshop/blob/main/%D0%92%D0%B8%D0%B7%D0%B8%D1%82%D0%BA%D0%B0-%D0%9A%D0%B0%D0%BD%D0%B0%D0%BB%D1%8B-03-21-2026_09_02_AM-Picsart-AiImageEnhancer.png?raw=true">
+            <div class="screenshot-placeholder">
+                <img src="https://github.com/nazarina/workshop/blob/main/%D0%92%D0%B8%D0%B7%D0%B8%D1%82%D0%BA%D0%B0-%D0%9A%D0%B0%D0%BD%D0%B0%D0%BB%D1%8B-03-21-2026_09_01_AM-Picsart-AiImageEnhancer.png?raw=true" alt="Каналы 1">
+                <img src="https://github.com/nazarina/workshop/blob/main/%D0%92%D0%B8%D0%B7%D0%B8%D1%82%D0%BA%D0%B0-%D0%9A%D0%B0%D0%BD%D0%B0%D0%BB%D1%8B-03-21-2026_09_02_AM-Picsart-AiImageEnhancer.png?raw=true" alt="Каналы 2">
             </div>
         </div>
 
-        <!-- Step 5 -->
         <div class="instruction-step">
             <div class="step-num">5</div>
             <h3>Добавляем кнопки</h3>
             <ul class="step-theses">
-                <li>В первом блоке нажми «Добавить кнопку».</li>
-                <li>Напиши название кнопки (например: Узнать цену).</li>
-                <li>Выбери Inline-кнопку для современного вида.</li>
+                <li>Нажми «Добавить кнопку» в первом блоке.</li>
+                <li>Выбери Inline-тип для современного вида.</li>
             </ul>
-            <div class="screenshot-placeholder"><img src="https://github.com/nazarina/workshop/blob/main/%D0%92%D0%B8%D0%B7%D0%B8%D1%82%D0%BA%D0%B0-%D0%9A%D0%BE%D0%BD%D1%81%D1%82%D1%80%D1%83%D0%BA%D1%82%D0%BE%D1%80-03-21-2026_08_56_AM-Picsart-AiImageEnhancer.png?raw=true"></div>
+            <div class="screenshot-placeholder">
+                <img src="https://github.com/nazarina/workshop/blob/main/%D0%92%D0%B8%D0%B7%D0%B8%D1%82%D0%BA%D0%B0-%D0%9A%D0%BE%D0%BD%D1%81%D1%82%D1%80%D1%83%D0%BA%D1%82%D0%BE%D1%80-03-21-2026_08_56_AM-Picsart-AiImageEnhancer.png?raw=true" alt="Кнопки">
+            </div>
         </div>
 
-        <!-- Step 6 -->
         <div class="instruction-step">
             <div class="step-num">6</div>
             <h3>Логика переходов</h3>
             <ul class="step-theses">
-                <li>Создай ещё один блок с текстом ответа.</li>
-                <li>Выбери тип блока "Не состояние с условием"</li>
-                <li>Выбор соответствия "Полное соврадение"
-</li>
-                <li>Теперь при нажатии бот будет отправлять новый текст.</li>
+                <li>Создай блок с типом "Не состояние с условием".</li>
+                <li>Выбери соответствие "Полное совпадение".</li>
             </ul>
-            <div class="screenshot-placeholder"><img src="https://github.com/nazarina/workshop/blob/main/%D0%92%D0%B8%D0%B7%D0%B8%D1%82%D0%BA%D0%B0-%D0%9A%D0%BE%D0%BD%D1%81%D1%82%D1%80%D1%83%D0%BA%D1%82%D0%BE%D1%80-03-21-2026_09_00_AM-Picsart-AiImageEnhancer.png?raw=true"></div>
+            <div class="screenshot-placeholder">
+                <img src="https://github.com/nazarina/workshop/blob/main/%D0%92%D0%B8%D0%B7%D0%B8%D1%82%D0%BA%D0%B0-%D0%9A%D0%BE%D0%BD%D1%81%D1%82%D1%80%D1%83%D0%BA%D1%82%D0%BE%D1%80-03-21-2026_09_00_AM-Picsart-AiImageEnhancer.png?raw=true" alt="Логика">
+            </div>
         </div>
 
-        <!-- Step 7 -->
         <div class="instruction-step">
             <div class="step-num">7</div>
             <h3>Команды меню</h3>
             <ul class="step-theses">
-                <li>Вернись в BotFather и настрой меню через /mybots.</li>
-                <li>Выберите нужного бота, далее нажмите пункт меню "Edit Comands". Следуйте подсказкам в Botfather</li>
-                <li>В Salebot создай блок, реагирующий на слово команды.</li>
-                <li>Так у бота появится удобная навигация слева от чата.</li>
+                <li>Настрой меню через /mybots в BotFather.</li>
+                <li>В Salebot создай блок, реагирующий на команду.</li>
             </ul>
-            <div class="screenshot-placeholder"><img src="https://github.com/nazarina/workshop/blob/main/%D0%A1%D0%BD%D0%B8%D0%BC%D0%BE%D0%BA%20%D1%8D%D0%BA%D1%80%D0%B0%D0%BD%D0%B0%202026-03-21%20090321-Picsart-AiImageEnhancer.png?raw=true"></div>
+            <div class="screenshot-placeholder">
+                <img src="https://github.com/nazarina/workshop/blob/main/%D0%A1%D0%BD%D0%B8%D0%BC%D0%BE%D0%BA%20%D1%8D%D0%BA%D1%80%D0%B0%D0%BD%D0%B0%202026-03-21%20090321-Picsart-AiImageEnhancer.png?raw=true" alt="Меню">
+            </div>
         </div>
-
     </div>
 
     <footer>
         <div class="container">
             <p style="font-size: 1.8rem; font-weight: 800; margin-bottom: 10px;">Натали | Твой проводник в IT</p>
-            <p style="font-family: 'Montserrat', sans-serif;">Создано для яркого будущего 🤍</p>
+            <p>Создано для яркого будущего 🤍</p>
             <div class="social-links">
                 <a href="#">Telegram</a>
                 <a href="#">ВКонтакте</a>
